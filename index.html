@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Савинов Иван — QA Engineer · Manual Testing">
-<title>Савинов Иван — QA Engineer · Manual Testing</title>
+<meta name="description" content="Савинов Иван — Product Engineer: разработка веб-продуктов, качество и бизнес-логика">
+<title>Савинов Иван — Product Engineer</title>
 <style>
   :root {
     --blue: #1264f5;
@@ -17,7 +17,6 @@
   }
 
   * { box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -37,16 +36,14 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, .06);
   }
 
-  header {
-    margin-bottom: 27px;
-  }
+  header { margin-bottom: 27px; }
 
   h1 {
     margin: 0 0 4px;
     font-size: 34px;
     line-height: 1.14;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: -.5px;
   }
 
   .subtitle {
@@ -70,10 +67,7 @@
   }
 
   .contacts a:hover { text-decoration: underline; }
-
-  section {
-    margin-top: 25px;
-  }
+  section { margin-top: 25px; }
 
   .section-title {
     margin: 0 0 13px;
@@ -86,56 +80,47 @@
     letter-spacing: .2px;
   }
 
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 42px;
-    row-gap: 4px;
+  .summary {
+    margin: 0;
+    max-width: 900px;
   }
 
-  .about-grid p,
-  .stack-list p,
-  .project p {
-    margin: 0;
+  .profile-grid,
+  .competency-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 42px;
   }
+
+  .profile-grid { margin-top: 13px; }
+
+  .profile-grid p,
+  .competency p,
+  .project p,
+  .previous-role p { margin: 0; }
 
   .label {
     font-weight: 700;
     color: #4b4f55;
   }
 
-  .skills {
-    margin: 0;
-    padding-left: 24px;
+  .competency {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
   }
 
-  .skills li {
-    margin: 3px 0;
-    padding-left: 2px;
-  }
-
-  .stack-list {
-    display: grid;
-    gap: 5px;
-  }
-
-  .stack-list .label {
+  .competency-title {
+    display: block;
     color: #111827;
+    font-weight: 700;
+    margin-bottom: 2px;
   }
 
-  .projects-section {
-    margin-top: 27px;
-  }
+  .project { margin-top: 23px; }
+  .project:first-of-type { margin-top: 3px; }
 
-  .project {
-    margin-top: 22px;
-  }
-
-  .project:first-of-type {
-    margin-top: 3px;
-  }
-
-  .project-head {
+  .project-head,
+  .previous-role-head {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
@@ -144,33 +129,50 @@
     border-bottom: 1px solid var(--line);
   }
 
-  .project-name {
+  .project-name,
+  .previous-role-name {
     margin: 0;
     font-size: 20px;
     line-height: 1.2;
     font-weight: 700;
   }
 
-  .project-period {
+  .project-period,
+  .previous-role-period {
     color: var(--muted);
     white-space: nowrap;
     font-size: 15px;
   }
 
   .project-role {
-    margin: 6px 0 7px;
+    margin: 6px 0 5px;
     color: var(--blue);
     font-size: 16px;
     font-weight: 700;
   }
 
-  .project-body {
-    display: grid;
-    gap: 6px;
+  .project-summary {
+    color: #4b4f55;
+    margin-bottom: 7px !important;
   }
 
-  .project-body .label {
-    color: #53565b;
+  .project-list {
+    margin: 0;
+    padding-left: 24px;
+  }
+
+  .project-list li {
+    margin: 4px 0;
+    padding-left: 2px;
+  }
+
+  .previous-role { margin-top: 15px; }
+
+  .previous-role-name { font-size: 17px; }
+
+  .previous-role p {
+    margin-top: 6px;
+    color: #4b4f55;
   }
 
   @media (max-width: 760px) {
@@ -194,16 +196,14 @@
       gap: 3px;
     }
 
-    .about-grid {
-      grid-template-columns: 1fr;
-      row-gap: 3px;
-    }
+    .profile-grid,
+    .competency-grid { grid-template-columns: 1fr; }
 
-    .project-head {
-      display: block;
-    }
+    .project-head,
+    .previous-role-head { display: block; }
 
-    .project-period {
+    .project-period,
+    .previous-role-period {
       display: block;
       margin-top: 3px;
     }
@@ -233,9 +233,8 @@
     .section-title { font-size: 13pt; }
     .project-name { font-size: 12.5pt; }
 
-    .project {
-      break-inside: avoid;
-    }
+    .project,
+    .previous-role { break-inside: avoid; }
 
     a {
       color: inherit !important;
@@ -249,105 +248,114 @@
 
   <header>
     <h1>Савинов Иван</h1>
-    <div class="subtitle">QA Engineer · Manual Testing</div>
+    <div class="subtitle">Product Engineer · Web Development · Quality Assurance</div>
     <div class="contacts">
-      <span>📍 Ульяновск, Россия</span>
-      <span>✈️ Telegram: <a href="https://t.me/iosariel">@iosariel</a></span>
-      <span>✉️ <a href="mailto:iosariel@mail.ru">iosariel@mail.ru</a></span>
+      <span>Ульяновск, Россия · удалённо</span>
+      <span>Telegram: <a href="https://t.me/iosariel">@iosariel</a></span>
+      <span><a href="mailto:iosariel@mail.ru">iosariel@mail.ru</a></span>
+      <span><a href="https://github.com/iosariel-dev">github.com/iosariel-dev</a></span>
     </div>
   </header>
 
   <section>
-    <h2 class="section-title">О специалисте</h2>
-    <div class="about-grid">
-      <p><span class="label">Направление:</span> QA (ручное тестирование)</p>
-      <p><span class="label">Стаж:</span> более 3 лет</p>
-      <p><span class="label">Гражданство:</span> Россия</p>
-      <p><span class="label">Локация:</span> Ульяновск · удалённо</p>
+    <h2 class="section-title">Профиль</h2>
+    <p class="summary">Продуктовый инженер с 1,5+ годами коммерческого опыта в веб-продуктах. Совмещаю разработку интерфейсов и бизнес-логики, тестирование, работу с API и данными, выпуск релизов и разбор production-инцидентов. Работал с fintech, SaaS и e-commerce — от требований и архитектуры до эксплуатации и обратной связи пользователей.</p>
+    <div class="profile-grid">
+      <p><span class="label">Основные области:</span> разработка · качество · продукт</p>
+      <p><span class="label">Домены:</span> fintech · SaaS · e-commerce</p>
+      <p><span class="label">Формат:</span> удалённая работа</p>
+      <p><span class="label">Языки:</span> русский · English для документации</p>
     </div>
   </section>
 
   <section>
-    <h2 class="section-title">Профессиональные навыки</h2>
-    <ul class="skills">
-      <li>Ручное тестирование веб-приложений (Manual QA)</li>
-      <li>Проведение функционального, регрессионного и интеграционного тестирования</li>
-      <li>Применение техник тест-дизайна: классы эквивалентности, граничные значения, таблицы решений, переходы состояний</li>
-      <li>Тестирование финансовой логики и краевых случаев денежных операций (Decimal, округление, идемпотентность, параллельные запросы)</li>
-      <li>Тестирование REST API и контрактов клиент-сервер (Postman, cURL, Swagger/OpenAPI)</li>
-      <li>Анализ HTTP-запросов и ответов, работа с DevTools/Network</li>
-      <li>Проверка целостности и изоляции данных, валидация миграций схемы БД (PostgreSQL, SQL)</li>
-      <li>Тестирование прав доступа и безопасности (RBAC, IDOR, подмена параметров)</li>
-      <li>Кросс-браузерное тестирование</li>
-      <li>Составление тестовой документации: чек-листы, тест-кейсы, баг-репорты</li>
-      <li>Триаж результатов автотестов и локализация продакшен-инцидентов</li>
-      <li>Работа с системами управления задачами и репозиториями (Jira, ClickUp, Git/GitLab/GitHub)</li>
-      <li>Тестирование платёжных систем и финтех-сервисов</li>
-      <li>Чтение кода на TypeScript/JavaScript для локализации причины дефекта</li>
-      <li>Тестирование интеграций с внешними сервисами (платёжные шлюзы, KYC/AML-провайдер Sumsub, биржевые API)</li>
-      <li>Техническое SEO: карта сайта, robots, разметка schema.org (JSON-LD), метаданные, hreflang</li>
-      <li>Участие в покрытии автотестами (Vitest, MSW, Testing Library), триаж падений регрессионного набора</li>
-      <li>Применение AI-инструментов в рабочем цикле: генерация тестовых данных и краевых значений, черновики чек-листов с последующей ручной проверкой, разбор объёмных логов, быстрое погружение в незнакомый код и стек</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 class="section-title">Технологический стек</h2>
-    <div class="stack-list">
-      <p><span class="label">Тестирование:</span> Postman, cURL, Swagger/OpenAPI, DevTools (Network/Console/Application), HAR, чек-листы, тест-кейсы, баг-репорты, техники тест-дизайна</p>
-      <p><span class="label">Языки и фронтенд:</span> TypeScript, JavaScript, React, Next.js, SCSS, Feature-Sliced Design</p>
-      <p><span class="label">API и данные:</span> REST, JSON, OpenAPI, HTTP; SQL, PostgreSQL — запросы для сверки данных и валидации расчётов</p>
-      <p><span class="label">Автотесты:</span> Vitest, MSW, Testing Library — участие в покрытии и разбор падений; Playwright — пробовал на практике, глубокого опыта нет</p>
-      <p><span class="label">Версионирование и сборка:</span> Git, GitLab, GitHub, GitLab CI, Docker / Docker Compose</p>
-      <p><span class="label">Трекинг:</span> ClickUp, GitLab Issues; Jira — на уровне понимания workflow</p>
-      <p><span class="label">AI-инструменты:</span> ежедневно в рабочем цикле — тестовые данные, черновики чек-листов, разбор логов, погружение в незнакомый стек</p>
-      <p><span class="label">Браузеры:</span> Chrome, Safari (WebKit), Firefox, Яндекс Браузер</p>
-      <p><span class="label">Знаком по проектам (без самостоятельной эксплуатации):</span> Kubernetes, Redis/Dragonfly, Elasticsearch, Meilisearch, Centrifugo, TaskIQ, TimescaleDB, Python/FastAPI</p>
+    <h2 class="section-title">Компетенции</h2>
+    <div class="competency-grid">
+      <div class="competency">
+        <span class="competency-title">Разработка</span>
+        <p>TypeScript, JavaScript, React, Next.js, HTML/CSS, интеграция REST API, Git, CI/CD, Docker</p>
+      </div>
+      <div class="competency">
+        <span class="competency-title">Качество</span>
+        <p>Функциональное и регрессионное тестирование, тест-дизайн, API, DevTools, HAR, кросс-браузерность</p>
+      </div>
+      <div class="competency">
+        <span class="competency-title">Данные и бизнес-логика</span>
+        <p>SQL, PostgreSQL, финансовые расчёты, платежи, переходы состояний, RBAC и изоляция данных</p>
+      </div>
+      <div class="competency">
+        <span class="competency-title">Продукт и delivery</span>
+        <p>Декомпозиция требований, проектирование сценариев, релизы, production-инциденты, работа с обратной связью</p>
+      </div>
     </div>
   </section>
 
-  <section class="projects-section">
-    <h2 class="section-title">Участие в проектах</h2>
+  <section>
+    <h2 class="section-title">Опыт и проекты</h2>
 
     <article class="project">
       <div class="project-head">
-        <h3 class="project-name">SkinAndBody</h3>
-        <span class="project-period">Июнь 2026 — Август 2026</span>
+        <h3 class="project-name">Nord Pay · криптоплатёжный процессинг</h3>
+        <span class="project-period">Февраль 2025 — Июнь 2026</span>
       </div>
-      <div class="project-role">Fullstack-разработчик</div>
-      <div class="project-body">
-        <p><span class="label">Технологии:</span> Frontend — Next.js, React, TypeScript, SCSS, Feature-Sliced Design. Интеграции — платёжный шлюз (онлайн-оплата), корзина с сохранением состояния. Инфраструктура — GitLab CI, автоматический деплой. SEO — разметка JSON-LD, метаданные, карта сайта, коды ответа. Тестирование — DevTools, чек-листы, тест-кейсы, техники тест-дизайна.</p>
-        <p><span class="label">Задачи:</span> разработка интернет-магазина целиком (каталог, корзина, логика скидок, оформление заказа, интеграция онлайн-оплаты, деплой); полный цикл ручного тестирования собственной разработки, проверка стабильности после выкатов.</p>
-        <p><span class="label">Результаты:</span> разработал чек-лист и 13 комплексных тест-кейсов с применением техник тест-дизайна (классы эквивалентности, граничные значения, таблицы решений, переходы состояний). Локализовал 3 критичных дефекта: рассинхрон счётчика товаров и итоговой суммы, обход лимита количества через ручной ввод, сетевой рассинхрон выката (404 на стилях на проде). Проверил интеграцию с платёжным шлюзом: сохранение корзины при неуспешном платеже, корректность возврата со шлюза, сверку итоговых сумм. Подготовил полный комплект тестовой документации.</p>
-      </div>
+      <div class="project-role">Frontend Developer / QA веб-части</div>
+      <p class="project-summary">Разрабатывал личный кабинет мерчанта, админ-панель и лендинги; в небольшой команде также отвечал за приёмку релизов и качество всей веб-части.</p>
+      <ul class="project-list">
+        <li>Разрабатывал интерфейсы на Next.js, React и TypeScript, интегрировал REST API и участвовал в выпуске релизов через GitLab CI.</li>
+        <li>Проверял платёжные потоки, вывод средств, роли и права доступа; разбирал production-инциденты по Network/Console, HAR и логам.</li>
+        <li>Нашёл расхождения frontend↔API в комиссии, количестве получателей и формате валюты, а также дефект округления Decimal <code>0E-18</code>.</li>
+        <li>Локализовал белый экран из-за 404 на статических ресурсах и отдельный класс дефектов Safari/WebKit.</li>
+        <li>Проверял не только доступность функций в интерфейсе, но и запрет прямых API-запросов для ролей без соответствующих прав.</li>
+      </ul>
     </article>
 
     <article class="project">
       <div class="project-head">
-        <h3 class="project-name">Nord Pay</h3>
-        <span class="project-period">Январь 2025 — Июнь 2026</span>
+        <h3 class="project-name">Slotly · SaaS для сферы услуг</h3>
+        <span class="project-period">Апрель 2025 — настоящее время</span>
       </div>
-      <div class="project-role">Frontend-разработчик / QA веб-части</div>
-      <div class="project-body">
-        <p><span class="label">Команда:</span> компактная распределённая команда (4 человека в штате): продукт/проджект-менеджер; Backend/DevOps в одном лице (API, платёжное ядро, блокчейн-слушатель, инфраструктура); Frontend/QA (я) — ЛК, админ-панель, лендинги + тестирование всей веб-части; дизайнер. Выделенного QA не было — качество веб-части закрывал я.</p>
-        <p><span class="label">Технологии:</span> Next.js (App Router), React, TypeScript, SCSS, Feature-Sliced Design, Radix UI, GSAP, Storybook; Backend — Python, FastAPI, PostgreSQL, Redis; блокчейн — 35 сетей, собственный слушатель транзакций; интеграции — Sumsub (KYC/AML), биржевые API, AWS S3, Elasticsearch; инфраструктура — Kubernetes, Docker, GitLab CI; тестирование — Postman, cURL, Swagger/OpenAPI, DevTools, HAR, Vitest, MSW, Testing Library; RBAC-матрица админки (35 прав).</p>
-        <p><span class="label">Задачи:</span> тестирование веб-части крипто-платёжного процессинга (ЛК мерчанта, админ-панель операторов, платёжные потоки, вывод средств). Приёмка релизов, регресс критичного пути, разбор продакшен-инцидентов. Тестирование платежей и краевых случаев (дробные суммы, локализация ввода, двойной сабмит, защита от повторного списания). Тестирование API/контракта клиент-сервер, прав доступа (RBAC) и безопасности (IDOR, токены, CSP). Техническое SEO лендингов. Баг-репорты с HAR, логами и видео в ClickUp/GitLab.</p>
-        <p><span class="label">Результаты:</span> локализовал дефект на границе округления Decimal (0E-18 отображалось как 0). Выявил расхождения контракта: поле total вместо recipientCount, скрытая комиссия service_fee, передача currency объектом вместо строки. Локализовал критический инцидент на проде («белый экран» в ЛК): воспроизвёл, зафиксировал 404 по статике в Network, изолировал ресурс и передал в разработку с критериями приёмки фикса. Выявил класс дефектов, воспроизводившихся только в Safari/WebKit. Закрыл класс «кнопка скрыта, а доступ к API остался» — прогон матрицы прав с проверкой прямых запросов.</p>
-      </div>
+      <div class="project-role">Founder / Fullstack Product Engineer</div>
+      <p class="project-summary">Проектирую и разрабатываю собственный SaaS-продукт: онлайн-запись, касса, склад, финансовый модуль, рассрочки и сертификаты.</p>
+      <ul class="project-list">
+        <li>Отвечаю за продуктовые решения, архитектуру frontend и backend, модель данных и критическую бизнес-логику.</li>
+        <li>Проектирую финансовые сценарии вокруг бизнес-правил, граничных случаев и переходов состояний.</li>
+        <li>Проверяю REST API, изоляцию данных и корректность расчётов SQL-запросами к PostgreSQL.</li>
+        <li>Разбираю падения frontend- и backend-тестов и оцениваю связанные области перед изменениями и релизами.</li>
+      </ul>
     </article>
 
     <article class="project">
       <div class="project-head">
-        <h3 class="project-name">B2B CRM (под NDA)</h3>
-        <span class="project-period">Сентябрь 2023 — Декабрь 2024</span>
+        <h3 class="project-name">SkinAndBody · сайт и интернет-магазин</h3>
+        <span class="project-period">2024 — настоящее время · проектно</span>
       </div>
-      <div class="project-role">Инженер по тестированию (Manual QA)</div>
-      <div class="project-body">
-        <p><span class="label">Технологии:</span> Backend — Python 3.12, FastAPI, SQLAlchemy 2 (async), PostgreSQL 16 + TimescaleDB, PgBouncer, PostGIS; кеш/очереди — Dragonfly, TaskIQ; поиск — Meilisearch; файлы — MinIO, imgproxy; реальное время — Centrifugo; Frontend — Next.js, React, TypeScript, Radix UI, TanStack Query, Zustand; тестирование — pytest/pytest-asyncio (123 файла на бэке), Vitest/Testing Library/MSW (50 на фронте), Postman, cURL, DevTools, SQL к PostgreSQL; инфраструктура — Docker, монорепозиторий (pnpm), GitLab.</p>
-        <p><span class="label">Задачи:</span> тестирование финансового ядра и критической бизнес-логики CRM (онлайн-запись, касса, склад, финансовый модуль, рассрочки, сертификаты). Масштаб: 6 модулей, финансовое ядро, регрессионный набор ~1500 проверок. Зона ответственности: денежные операции и переходы состояний, многопользовательская архитектура с изоляцией данных, REST API, сверка данных SQL-запросами, валидация миграций схемы БД, сопровождение релизов, триаж падений автотестов.</p>
-        <p><span class="label">Результаты:</span> сформулировал финансовые правила-инварианты для операций продажи, отмены, рассрочки и сертификатов; строил проверки от них, а не от happy path. Спроектировал негативные сценарии на сложных переходах состояний (отмена оплаченной записи, изменение состава услуг после оплаты, возврат по сертификату, параллельные запросы). Нашёл критические дефекты: «зависание» отложенной выручки при отмене сертификата и несанкционированное изменение состава/скидки уже оплаченной записи. Локализовал утечку данных между тестами, дававшую ложноположительные прогоны регресса. Внедрил правило обязательного прогона всех связанных сценариев при изменении общих констант/справочников.</p>
-      </div>
+      <div class="project-role">Fullstack Developer / QA</div>
+      <p class="project-summary">Разработал и сопровождаю коммерческий сайт с каталогом, корзиной, скидками, оформлением заказа и онлайн-оплатой.</p>
+      <ul class="project-list">
+        <li>Создал первую версию на PHP/HTML/CSS/JavaScript, затем перенёс продукт на Next.js и React.</li>
+        <li>Настроил каталог, корзину, платёжную интеграцию, SEO-разметку, CI/CD и автоматический деплой.</li>
+        <li>Подготовил проверки для корзины, оформления заказа и оплаты; нашёл рассинхрон счётчика и суммы, обход лимита количества и ошибки сохранения состояния.</li>
+        <li>Локализовал production-дефект с 404 на стилях после рассинхронного выката.</li>
+      </ul>
     </article>
+  </section>
+
+  <section>
+    <h2 class="section-title">Предыдущий опыт</h2>
+    <div class="previous-role">
+      <div class="previous-role-head">
+        <h3 class="previous-role-name">Альфа-Банк · обслуживание состоятельных клиентов</h3>
+        <span class="previous-role-period">Июль 2024 — Январь 2025</span>
+      </div>
+      <p>Консультировал клиентов по банковским и инвестиционным продуктам, работал со сложными финансовыми вопросами и продажами в условиях высокой нагрузки.</p>
+    </div>
+    <div class="previous-role">
+      <div class="previous-role-head">
+        <h3 class="previous-role-name">Яндекс Еда · контактный центр логистики</h3>
+        <span class="previous-role-period">Август 2023 — Июль 2024</span>
+      </div>
+      <p>Проводил найм и онбординг курьеров, сопровождал их во время заказов и решал нестандартные ситуации в голосовой поддержке.</p>
+    </div>
   </section>
 
 </main>
